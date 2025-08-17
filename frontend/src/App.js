@@ -144,7 +144,7 @@ function App() {
     setIsSuccess(false);
 
     try {
-      const response = await fetch('https://ai-meeting-summarizer-rs84.onrender.com/', {
+      const response = await fetch('https://ai-meeting-summarizer-rs84.onrender.com/summarize', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ transcript, prompt }),
@@ -170,7 +170,7 @@ function App() {
     const recipientList = recipients.split(',').map(r => r.trim()).filter(r => r);
 
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('https://ai-meeting-summarizer-rs84.onrender.com/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ recipients: recipientList, content: summary }),
