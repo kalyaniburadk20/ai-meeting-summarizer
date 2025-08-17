@@ -15,7 +15,13 @@ console.log('------------------------------------');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const app = express();
-app.use(cors()); // Enable CORS for frontend communication
+const corsOptions = {
+  origin: 'https://ai-meeting-summarizer-1-bdl3.onrender.com', // Replace with your frontend's live URL
+  optionsSuccessStatus: 200 // For legacy browser support
+};
+
+app.use(cors(corsOptions));
+ // Enable CORS for frontend communication
 app.use(bodyParser.json()); // Parse JSON request bodies
 
 const PORT = process.env.PORT || 5000; // Use port from .env or default to 5000
