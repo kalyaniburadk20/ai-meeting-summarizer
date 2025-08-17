@@ -144,7 +144,7 @@ function App() {
     setIsSuccess(false);
 
     try {
-      const response = await fetch('http://localhost:5000/summarize', {
+      const response = await fetch('https://ai-meeting-summarizer-rs84.onrender.com/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ transcript, prompt }),
